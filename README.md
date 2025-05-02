@@ -85,7 +85,7 @@ npm run test
 ```
 
 # RangerDemo
-# TODO video recording
+![Code Walkthrough](https://drive.google.com/drive/folders/1I7n6sZCOaaqN6i0cXBnXaH_2BTV8evjU?usp=sharing)
 
 # Reports:
 Sample report can be found here ./playwright-sample-report/index.html
