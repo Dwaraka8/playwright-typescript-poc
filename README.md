@@ -84,8 +84,8 @@ Add `.only` to the specific test you want to run in isolation in `all.test.ts` a
 npm run test
 ```
 
-# RangerDemo
-![Code Walkthrough](https://drive.google.com/drive/folders/1I7n6sZCOaaqN6i0cXBnXaH_2BTV8evjU?usp=sharing)
+# RangerDemod
+Vidoe walkthough video can be found here: https://drive.google.com/drive/folders/1I7n6sZCOaaqN6i0cXBnXaH_2BTV8evjU?usp=sharing
 
 # Reports:
 Sample report can be found here ./playwright-sample-report/index.html
