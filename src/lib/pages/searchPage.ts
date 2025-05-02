@@ -1,8 +1,9 @@
 import { Page, Locator, expect } from "@playwright/test";
 import dotenv from 'dotenv';
 
-// Page Object Model for the SearchPage
+
 export class SearchPage {
+    
     // Declaring the page property, which will be used throughout the class
     readonly page: Page;
 

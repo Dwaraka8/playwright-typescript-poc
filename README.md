@@ -24,22 +24,29 @@ Each test file contains more detailed instructions.
 Make sure that the only files that you edit are `login.test.ts`, `searchWikipedia.ts`, and `wikipediaHomepageActions.ts`.
 
 ## Project Structure
- <!-- -To Do --> update tree struture
-```plaintext
-├── README.md
-├── package.json
-├── package-lock.json
-├── playwright.config.ts
-├── .env
-└── src
-    └── lib
-        ├── all.test.ts
-        ├── login.test.ts
-        ├── tests
-        │   ├── searchWikipedia.ts
-        │   └── wikipediaHomepageActions.ts
-    └── auth
-        └── login.json
+ plaintext
+```
+RangerDemo
+├─ .env
+├─ README.md
+├─ package-lock.json
+├─ package.json
+└─ src
+   ├─ auth
+   │  └─ login.json
+   └─ lib
+      ├─ all.test.ts
+      ├─ login.test.ts
+      ├─ pages
+      │  ├─ artificialIntelligencePage.ts
+      │  ├─ loginPage.ts
+      │  ├─ searchPage.ts
+      │  └─ wikipediaHomePage.ts
+      ├─ playwright.config.ts
+      ├─ test-1.spec.ts
+      └─ tests
+         ├─ searchWikipedia.ts
+         └─ wikipediaHomepageActions.ts
 ```
 
 ## Setup
@@ -77,15 +84,14 @@ Add `.only` to the specific test you want to run in isolation in `all.test.ts` a
 npm run test
 ```
 
-## Need Help?
-
-If you run into any technical issues during the assessment, do your best to unblock yourself. If you really cannot proceed or are done with the task, email megan@ranger.net.
 # RangerDemo
 # TODO video recording
-page object model
-seperate of concern: assertion at test layers and page related actions in page class
-utility methods 
 
-# reprots attachig
-# Further additions that can be done:
-CI/CD intergration, parallel execution, cross browser support, dockerization, detailed logging, test deta from external files(e.g: json)
+# Reports:
+Sample report can be found here ./playwright-sample-report/index.html
+
+ ![](/playwright-sample-report/sample-report.png)
+
+
+# Future Improvements:
+- CI/CD intergration, parallel execution, cross browser support, dockerization, detailed logging, test deta from external files(e.g: json)

@@ -1,8 +1,9 @@
-import { expect, Page } from "@playwright/test";
+import { expect, Page, Locator } from "@playwright/test";
 import dotenv from 'dotenv';
 
-// Page Object Model for the LoginPage
+
 export class LoginPage {
+    
     // Declaring the page property, which will be used throughout the class
     readonly page: Page;
 
@@ -12,6 +13,7 @@ export class LoginPage {
     private static readonly LOGIN_BUTTON_LOCATOR = '#wpLoginAttempt';
     private static readonly USER_PAGE_LOCATOR = '//li[@id="pt-userpage-2"]//span[text()="Rangerskill8"]';
     private static readonly ERROR_MESSAGE_LOCATOR = '.mw-message-box-error';
+    private static readonly CENTRAL_LOGIN_NOTICE = 'text=centrally logged in';
 
     /**
      * Constructor to initialize the LoginPage with a Playwright Page object.
@@ -49,15 +51,19 @@ export class LoginPage {
 
         // Click the login button to submit the form
         await this.page.click(LoginPage.LOGIN_BUTTON_LOCATOR);
+        
+    }
 
-        // Verify if the user page is visible after successful login
-        await expect(
-            this.page.locator(LoginPage.USER_PAGE_LOCATOR)
-        ).toBeVisible({ timeout: 5000 });
+    async getUserPageLocator(): Promise<Locator> {
+        return this.page.locator(LoginPage.USER_PAGE_LOCATOR);
     }
 
     async isUserPageLinkVisible(): Promise<boolean> {
         return await this.page.locator(LoginPage.USER_PAGE_LOCATOR).isVisible({ timeout: 5000 });
+    }
+
+    async isCentralLoginNoticeVisible(): Promise<boolean> {
+        return await this.page.locator(LoginPage.CENTRAL_LOGIN_NOTICE).isVisible({ timeout: 5000 }).catch(() => false);
     }
 
     /**

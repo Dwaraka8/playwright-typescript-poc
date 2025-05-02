@@ -1,8 +1,9 @@
 import { Page, Locator, expect } from "@playwright/test";
 import dotenv from 'dotenv';
 
-// Page Object Model for the Wikipedia Homepage
+
 export class WikipediaHomepage {
+    
     // Declaring the page property, which will be used throughout the class
     readonly page: Page;
 
@@ -12,6 +13,7 @@ export class WikipediaHomepage {
     private static readonly ARTICLE_COUNT_LOCATOR = '#articlecount a';
     private static readonly FONT_SIZE_SELECTOR_BASE = '(//span[normalize-space()="{option}"])[1]';
     private static readonly WELCOME_TEXT_LOCATOR = '#Welcome_to_Wikipedia';
+    private static readonly USER_PAGE_XPATH = '//li[@id="pt-userpage-2"]//span[text()="Rangerskill8"]';
     private static readonly FONT_SIZE_SELECTION_CHECKBOXES = [
         { label: 'small', selector: '#skin-client-pref-vector-feature-custom-font-size-value-0' },
         { label: 'large', selector: '#skin-client-pref-vector-feature-custom-font-size-value-2' },
@@ -47,7 +49,7 @@ export class WikipediaHomepage {
         if (await centralLoginNotice.isVisible({ timeout: 5000 })) {
             console.log('Detected central login message, reloading page...');
             await this.page.reload();
-            await expect(this.page.locator('//li[@id="pt-userpage-2"]//span[text()="Rangerskill8"]')).toBeVisible({ timeout: 10000 });
+            await expect(this.page.locator(WikipediaHomepage.USER_PAGE_XPATH)).toBeVisible({ timeout: 10000 });
             await this.page.waitForTimeout(10000);
         }
 
@@ -75,11 +77,11 @@ export class WikipediaHomepage {
         console.log(`Requested option to select is: ${option}`);
 
         // Wait for the page to load before clicking the option
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(1000);
         await this.page.click(WikipediaHomepage.FONT_SIZE_SELECTOR_BASE.replace('{option}', option));
 
         // Wait for the page to load after selection
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(1000);
 
         // Log the font size selection state
         await this.logFontSizeSelectionState(this.page);

@@ -20,27 +20,25 @@ import { ArtificialIntelligencePage } from '../pages/artificialIntelligencePage'
  * Good luck!
  */
 export async function run(page: Page, params: {}) {
+
     const searchPage = new SearchPage(page);
     const artificialIntelligencePage = new ArtificialIntelligencePage(page);
-
-    // Constants for expected values and test steps
-    const EXPECTED_LAST_EDITOR_NAME = 'Worstbull';
-    const SEARCH_TERM = 'Artificial Intelligence';
+    
+    const expectedLastEditorName = 'Worstbull';
+    const searchTerm = 'Artificial Intelligence';
 
     /** STEP: Navigate to URL */
     await searchPage.goto();
-    
-    // Search for "Artificial Intelligence"
-    await searchPage.search(SEARCH_TERM);
+    await searchPage.search(searchTerm);
     
     // Navigate to the Artificial Intelligence page and open its "View History"
     await artificialIntelligencePage.goto();
     await artificialIntelligencePage.openViewHistory();
 
     // Get the name of the last editor
-    const lastEditor = await artificialIntelligencePage.getLastEditorName();
-    console.log(`Last edited by: ${lastEditor}`);
+    const lastEditorName = await artificialIntelligencePage.getLastEditorName();
+    console.log(`Last edited by: ${lastEditorName}`);
 
     // Assert that the last editor is not EXPECTED_LAST_EDITOR_NAME
-    expect(lastEditor.toLocaleLowerCase()).not.toContain(EXPECTED_LAST_EDITOR_NAME);
+    expect(lastEditorName.toLocaleLowerCase()).not.toContain(expectedLastEditorName);
 }

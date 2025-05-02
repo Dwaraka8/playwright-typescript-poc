@@ -1,8 +1,9 @@
 import { Page, Locator } from "@playwright/test";
 import dotenv from 'dotenv';
 
-// Page Object Model for the ArtificialIntelligencePage
+
 export class ArtificialIntelligencePage {
+    
     // Declaring the page property, which will be used throughout the class
     readonly page: Page;
     
