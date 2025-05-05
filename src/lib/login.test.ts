@@ -26,7 +26,7 @@ test('Sign in to Wikipedia', async ({ page }) => {
     
     await loginPage.loginWithValidCredentials(wikipediaUsername, wikipediaPassword);
 
-    await expect(await loginPage.isUserPageLinkVisible()).toBe(true);
+    expect(await loginPage.isUserPageLinkVisible()).toBe(true);
 
     const mainpageUrl = process.env.MAIN_PAGE_URL;
     if (!mainpageUrl) {
@@ -40,6 +40,9 @@ test('Sign in to Wikipedia', async ({ page }) => {
     console.log('Central login notice visible:', isCentralNoticeVisible);
     if (isCentralNoticeVisible) {
         console.log('Detected central login message, reloading page...');
+        await page.reload();
+        await expect(await loginPage.isUserPageLinkVisible()).toBe(true);
+    } else {
         await page.reload();
         await expect(await loginPage.isUserPageLinkVisible()).toBe(true);
     }

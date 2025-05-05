@@ -44,10 +44,9 @@ export class SearchPage {
             console.log('Detected central login message, reloading page...');
             await this.page.reload();
             await expect(this.page.locator(SearchPage.USER_PAGE_LOCATOR)).toBeVisible({ timeout: 5000 });
+            // Click the login link to go to the login page
+            await this.page.locator(SearchPage.LOGIN_LINK_LOCATOR).click();
         }
-
-        // Click the login link to go to the login page
-        await this.page.locator(SearchPage.LOGIN_LINK_LOCATOR).click();
     }
 
     /**
