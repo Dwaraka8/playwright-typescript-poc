@@ -85,7 +85,9 @@ npm run test
 ```
 
 # RangerDemod
-Vidoe walkthough video can be found here: https://drive.google.com/drive/folders/1I7n6sZCOaaqN6i0cXBnXaH_2BTV8evjU?usp=sharing
+Video walkthough video can be found here: https://www.loom.com/share/652475181dce4e16a2855c065ed8f0fa?sid=dfc0d8b3-e1bb-479f-b57a-381414bad911
+
+
 
 # Reports:
 Sample report can be found here ./playwright-sample-report/index.html
